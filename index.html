@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TFT Damage calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>TFT Damage Calculator</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="about">
+          <p>
+            In the game Teamfight Tactics, the amount of damage you deal/take
+            depends on the units left on the field, and also the stage you are
+            on.
+          </p>
+          <p>
+            You can find what stage you are on by looking at the top of the
+            screen while in a game of TFT. It is the first number on the left.
+          </p>
+          <img src="StageImg.png" alt="round example." />
+          <p>
+            Please enter valid numbers, otherwise you will receive an error.
+          </p>
+        </div>
+        <div class="dmg-calc">
+          <h2>Damage Calculator</h2>
+          <form id="form">
+            <label for="stage"> Enter stage here:</label>
+            <input
+              type="number"
+              id="stage"
+              min="0"
+              max="9"
+              placeholder="Stage"
+            />
+            <label for="units"> Enter units lost/won by:</label>
+            <input type="number" id="units" min="0" placeholder="Units" />
+          </form>
+          <div class="btn-container">
+            <button id="calculate" onclick="calculateDmg()">Calculate</button>
+          </div>
+          <div class="result">
+            <p>You have taken/dealt <span id="damage-dealt">0</span> damage.</p>
+          </div>
+        </div>
+        <div class="explanation">
+          <p>The damage formula is as follows:</p>
+          <code>
+            stage damage 1: 0, 2: 2, 3: 5, 4: 8, 5: 10, 6: 12, 7+: 17
+            <br />
+          </code>
+          <code class="formula1">
+            Stage damage + amount of units you lost or won by.
+          </code>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
